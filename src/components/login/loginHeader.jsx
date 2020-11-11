@@ -5,7 +5,7 @@ const LoginHeader = () => {
     <div className={styles.header}>
       <img
         className={styles.header_img}
-        src='../../../public/favicon.ico'
+        src={require('../../assets/img/favicon.ico')}
         alt=''
       ></img>
       <h2 className={styles.header_h}>Business Card Maker</h2>

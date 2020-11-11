@@ -1,3 +1,18 @@
+@value makerLightGrey from '../../assets/css/colors.css';
+
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .login {
   position: absolute;
   top: 50%;
@@ -11,14 +26,14 @@
 .header {
   background-color: blue;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .header_img {
-  width: 30px;
-  height: 40px;
+  width: 40px;
+  height: 30px;
 }
 
 .header_h {
-  align-items: center;
   color: white;
 }
