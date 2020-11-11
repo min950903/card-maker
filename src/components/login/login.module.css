@@ -1,12 +1,10 @@
-@value makerLightGrey from '../../assets/css/colors.css';
+@value makerGrey from '../../assets/css/colors.css';
+@value makerGreen from '../../assets/css/colors.css';
 
 .container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-color: makerGrey;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,9 +22,11 @@
 }
 
 .header {
-  background-color: blue;
+  background-color: makerGreen;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5em;
 }
 
 .header_img {
@@ -36,4 +36,5 @@
 
 .header_h {
   color: white;
+  margin: 0;
 }
