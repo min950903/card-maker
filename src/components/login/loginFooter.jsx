@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './login.module.css';
 
 const LoginFooter = () => {
   return (
-    <div>
-      <h4>Have a dream!</h4>
+    <div className={styles.footer}>
+      <p className={styles.footer_p}>Have a dream!</p>
     </div>
   );
 };
