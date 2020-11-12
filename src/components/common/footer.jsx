@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './login.module.css';
+import styles from '../../assets/css/common/footer.module.css';
 
-const LoginFooter = () => {
+const Footer = () => {
   return (
     <div className={styles.footer}>
       <p className={styles.footer_p}>Have a dream!</p>
@@ -9,4 +9,4 @@ const LoginFooter = () => {
   );
 };
 
-export default LoginFooter;
+export default Footer;

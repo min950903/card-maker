@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './login.module.css';
-const LoginHeader = () => {
+import styles from '../../assets/css/common/header.module.css';
+const Header = () => {
   return (
     <div className={styles.header}>
       <img
@@ -13,4 +13,4 @@ const LoginHeader = () => {
   );
 };
 
-export default LoginHeader;
+export default Header;

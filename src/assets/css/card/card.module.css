@@ -1,0 +1,17 @@
+.card {
+  display: flex;
+  height: 87%;
+}
+.maker {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  padding: 0.5em;
+}
+
+.preview {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  padding: 0.5em;
+}

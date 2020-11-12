@@ -1,0 +1,12 @@
+@value makerGreen from '../common/colors.css';
+
+.container {
+  width: 100%;
+}
+
+.title {
+  color: makerGreen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
