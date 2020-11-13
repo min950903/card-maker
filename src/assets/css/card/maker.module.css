@@ -10,3 +10,12 @@
   align-items: center;
   color: makerGreen;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(50px, auto);
+}
+
+.title {
+}
