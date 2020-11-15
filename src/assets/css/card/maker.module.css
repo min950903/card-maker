@@ -4,18 +4,9 @@
   width: 100%;
 }
 
-.title {
+.cardTitle {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: makerGreen;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: minmax(50px, auto);
-}
-
-.title {
 }
