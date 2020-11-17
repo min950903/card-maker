@@ -1,18 +1,14 @@
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 
 // Add the Firebase services that you want to use
 import 'firebase/auth';
 import 'firebase/firestore';
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyDu7-xp2bubPp_JxvaiFpimAkZS6oa3ppE',
-  authDomain: 'card-maker-fd892.firebaseapp.com',
-  databaseURL: 'https://card-maker-fd892.firebaseio.com',
-  projectId: 'card-maker-fd892',
-  storageBucket: 'card-maker-fd892.appspot.com',
-  messagingSenderId: '729957202333',
-  appId: '1:729957202333:web:5a5e1352268994be111774',
-  measurementId: 'G-7TLNMJRJFC',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
 };
 
 const provider = new firebase.auth.GoogleAuthProvider();

@@ -24,3 +24,6 @@ yarn-error.log*
 
 # settings
 settings.json
+
+#firebase API_KEY
+.env
