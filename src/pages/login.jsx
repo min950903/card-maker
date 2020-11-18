@@ -1,28 +1,22 @@
-import React from 'react';
-import LoginContents from '../components/login/loginContents';
+import React, { useCallback } from 'react';
+import styles from '../assets/css/login/login.module.css';
 import Footer from '../components/common/footer';
 import Header from '../components/common/header';
-import styles from '../assets/css/login/login.module.css';
-import {
-  googleSignPopup,
-  signGoogleRedirect,
-  getRedirectResult,
-} from '../lib/api/authentication';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
+import LoginContents from '../components/login/loginContents';
 
-const Login = () => {
-  const onClickGoogle = useCallback(() => {
-    googleSignPopup();
-    signGoogleRedirect();
-    getRedirectResult();
-  }, []);
+const Login = ({ authService }) => {
+  const onSign = useCallback(
+    (evnet) => {
+      authService.login(evnet.currentTarget.textContent);
+    },
+    [authService]
+  );
 
   return (
     <>
       <div className={styles.login}>
         <Header />
-        <LoginContents onClickGoogle={onClickGoogle} />
+        <LoginContents onSign={onSign} />
         <Footer />
       </div>
     </>

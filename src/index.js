@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
 import App from './app';
+import './index.css';
+import AuthService from './lib/api/authAPI';
+
+const authService = new AuthService();
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <App authService={authService} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

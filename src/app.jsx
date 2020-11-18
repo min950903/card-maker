@@ -4,12 +4,12 @@ import Login from './pages/login';
 import styles from './app.module.css';
 import CardApp from './pages/cardApp';
 
-function App() {
+function App({ authService }) {
   return (
     <Switch>
       <Route path={['/login', '/']} exact>
         <div className={styles.login}>
-          <Login />
+          <Login authService={authService} />
         </div>
       </Route>
       <Route path='/app'>

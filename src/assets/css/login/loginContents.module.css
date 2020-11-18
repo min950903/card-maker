@@ -5,9 +5,10 @@
 .contents {
   background-color: makerWhite;
   padding: 1.5em 0.5em 1.5em 0.5em;
+  width: 96.5%;
 }
 
-.contents_h {
+.title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +16,7 @@
   margin-bottom: 0.5em;
 }
 
-.contents_p {
+.button {
   border: 0.1em solid makerGreen;
   border-radius: 15px;
   display: flex;
@@ -26,6 +27,7 @@
   margin-bottom: 0.5em;
   padding-top: 0.2em;
   height: 2em;
+  width: 100%;
 }
 
 .contents_p:hover {
