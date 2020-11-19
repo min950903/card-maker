@@ -6,10 +6,8 @@ const CardItem = () => {
     <form className={styles.container}>
       <input className={styles.name} placeholder='Name' />
       <input className={styles.company} placeholder='Company' />
-      <select className={styles.color}>
-        <option value='makerLight' selected>
-          Light
-        </option>
+      <select className={styles.color} defaultValue='makerLight'>
+        <option value='makerLight'>Light</option>
         <option value='makerBlack'>Black</option>
         <option value='makerColorful'>Colorful</option>
       </select>

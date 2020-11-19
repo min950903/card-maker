@@ -4,12 +4,17 @@ import Footer from '../components/common/footer';
 import Header from '../components/common/header';
 import LoginContents from '../components/login/loginContents';
 
-const Login = ({ authService }) => {
+const Login = ({ authService, checkLogin }) => {
   const onSign = useCallback(
     (evnet) => {
-      authService.login(evnet.currentTarget.textContent);
+      authService
+        .login(evnet.currentTarget.textContent)
+        .then((result) => {
+          checkLogin();
+        })
+        .catch((err) => {});
     },
-    [authService]
+    [authService, checkLogin]
   );
 
   return (

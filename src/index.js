@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app';
 import './index.css';
-import AuthService from './lib/api/authAPI';
+import AuthService from './lib/api/authService';
 
 const authService = new AuthService();
 
