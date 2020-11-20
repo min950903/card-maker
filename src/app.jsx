@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
-import Login from './pages/login';
+import Login from './components/login/login';
 import styles from './app.module.css';
 import CardApp from './pages/cardApp';
 import { useEffect } from 'react';
@@ -12,7 +12,7 @@ const App = ({ authService }) => {
   const history = useHistory();
 
   const checkLogin = useCallback(() => {
-    setIsLogin(!isLogin);
+    setIsLogin(false);
 
     if (isLogin) {
       history.push('/app');

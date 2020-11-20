@@ -2,14 +2,11 @@
 @value makerGreen from '../common/colors.css';
 
 .footer {
+  width: 100%;
   background-color: makerGreen;
-  padding: 0.7em;
+  text-align: center;
 }
 
-.footer_p {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.title {
   color: makerWhite;
 }

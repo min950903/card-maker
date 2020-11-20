@@ -30,6 +30,6 @@
   width: 100%;
 }
 
-.contents_p:hover {
+.button:hover {
   background-color: makerPink;
 }

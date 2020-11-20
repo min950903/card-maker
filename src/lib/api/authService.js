@@ -9,10 +9,3 @@ class AuthService {
 }
 
 export default AuthService;
-
-/*
-  export const login = (providerName) => {
-    const provider = new firebase.auth[`${providerName}AuthProvider`]();
-    return firebaseApp.auth().signInWithPopup(provider);
-  };
-   */

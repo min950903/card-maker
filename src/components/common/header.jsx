@@ -1,15 +1,18 @@
 import React from 'react';
 import styles from '../../assets/css/common/header.module.css';
-const Header = () => {
+const Header = ({ onLogout }) => {
   return (
-    <div className={styles.header}>
+    <hedaer className={styles.header}>
+      <button className={styles.logout} onLogout={onLogout}>
+        Logout
+      </button>
       <img
-        className={styles.header_img}
+        className={styles.logo}
         src={require('../../assets/img/favicon.ico')}
         alt=''
       ></img>
-      <h2 className={styles.header_h}>Business Card Maker</h2>
-    </div>
+      <h2 className={styles.title}>Business Card Maker</h2>
+    </hedaer>
   );
 };
 
