@@ -1,8 +1,8 @@
 @value makerGreen from '../common/colors.css';
 @value makerWhite from '../common/colors.css';
-@value makerPink from '../common/colors.css';
+@value makerLightPink from '../common/colors.css';
 
-.login {
+.contents {
   width: 30em;
   text-align: center;
   display: flex;

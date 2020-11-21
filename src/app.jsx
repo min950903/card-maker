@@ -19,11 +19,17 @@ const App = ({ authService }) => {
     }
   }, [history, isLogin]);
 
+  const onLogout = () => {};
+
   return (
     <Switch>
       <Route path={['/login', '/']} exact>
         <div className={styles.login}>
-          <Login authService={authService} checkLogin={checkLogin} />
+          <Login
+            authService={authService}
+            checkLogin={checkLogin}
+            onLogout={onLogout}
+          />
         </div>
       </Route>
       <Route path='/app'>

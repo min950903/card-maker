@@ -1,6 +1,6 @@
 @value makerGreen from '../common/colors.css';
 @value makerWhite from '../common/colors.css';
-@value makerPink from '../common/colors.css';
+@value makerLightPink from '../common/colors.css';
 
 .contents {
   background-color: makerWhite;
@@ -31,5 +31,5 @@
 }
 
 .button:hover {
-  background-color: makerPink;
+  background-color: makerLightPink;
 }

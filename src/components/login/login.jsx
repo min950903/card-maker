@@ -3,7 +3,7 @@ import styles from '../../assets/css/login/login.module.css';
 import Footer from '../common/footer';
 import Header from '../common/header';
 
-const Login = ({ authService, checkLogin }) => {
+const Login = ({ authService, checkLogin, onLogout }) => {
   const onSign = useCallback(
     (evnet) => {
       authService
@@ -17,25 +17,23 @@ const Login = ({ authService, checkLogin }) => {
   );
 
   return (
-    <>
-      <setion className={styles.contents}>
-        <Header />
-        <h1 className={styles.title}>Login</h1>
-        <ul className={styles.list}>
-          <li className={styles.item}>
-            <button className={styles.button} onClick={onSign}>
-              Google
-            </button>
-          </li>
-          <li>
-            <button className={styles.button} onClick={onSign}>
-              Github
-            </button>
-          </li>
-        </ul>
-        <Footer />
-      </setion>
-    </>
+    <section className={styles.contents}>
+      <Header onLogout={onLogout} />
+      <h1 className={styles.title}>Login</h1>
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <button className={styles.button} onClick={onSign}>
+            Google
+          </button>
+        </li>
+        <li>
+          <button className={styles.button} onClick={onSign}>
+            Github
+          </button>
+        </li>
+      </ul>
+      <Footer />
+    </section>
   );
 };
 

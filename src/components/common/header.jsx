@@ -2,8 +2,8 @@ import React from 'react';
 import styles from '../../assets/css/common/header.module.css';
 const Header = ({ onLogout }) => {
   return (
-    <hedaer className={styles.header}>
-      <button className={styles.logout} onLogout={onLogout}>
+    <header className={styles.header}>
+      <button className={styles.logout} onClick={onLogout}>
         Logout
       </button>
       <img
@@ -12,7 +12,7 @@ const Header = ({ onLogout }) => {
         alt=''
       ></img>
       <h2 className={styles.title}>Business Card Maker</h2>
-    </hedaer>
+    </header>
   );
 };
 
