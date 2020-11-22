@@ -12,14 +12,17 @@ const App = ({ authService }) => {
   const history = useHistory();
 
   const checkLogin = useCallback(() => {
+    setIsLogin(true);
+
+    history.push('/app');
+  }, [history]);
+
+  const onLogout = useCallback(() => {
+    console.log('test');
     setIsLogin(false);
 
-    if (isLogin) {
-      history.push('/app');
-    }
-  }, [history, isLogin]);
-
-  const onLogout = () => {};
+    history.push('/login');
+  }, [history]);
 
   return (
     <Switch>
