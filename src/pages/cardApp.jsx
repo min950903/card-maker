@@ -4,10 +4,10 @@ import CardPreview from '../components/card/cardPreview';
 import styles from '../assets/css/card/card.module.css';
 import Header from '../components/common/header';
 import Footer from '../components/common/footer';
-const CardApp = () => {
+const CardApp = ({ onLogout }) => {
   return (
     <>
-      <Header />
+      <Header onLogout={onLogout} />
       <div className={styles.card}>
         <div className={styles.maker}>
           <CardMaker />

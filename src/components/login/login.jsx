@@ -3,7 +3,7 @@ import styles from '../../assets/css/login/login.module.css';
 import Footer from '../common/footer';
 import Header from '../common/header';
 
-const Login = ({ authService, checkLogin, onLogout }) => {
+const Login = ({ authService, checkLogin }) => {
   const onSign = useCallback(
     (evnet) => {
       authService
@@ -18,7 +18,7 @@ const Login = ({ authService, checkLogin, onLogout }) => {
 
   return (
     <section className={styles.contents}>
-      <Header onLogout={onLogout} />
+      <Header />
       <h1 className={styles.title}>Login</h1>
       <ul className={styles.list}>
         <li className={styles.item}>

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
-import Login from './components/login/login';
+import React, { useCallback, useState } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import styles from './app.module.css';
+import Login from './components/login/login';
 import CardApp from './pages/cardApp';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
 
 const App = ({ authService }) => {
   const [isLogin, setIsLogin] = useState(false);
@@ -19,6 +17,7 @@ const App = ({ authService }) => {
 
   const onLogout = useCallback(() => {
     console.log('test');
+
     setIsLogin(false);
 
     history.push('/login');
@@ -28,16 +27,12 @@ const App = ({ authService }) => {
     <Switch>
       <Route path={['/login', '/']} exact>
         <div className={styles.login}>
-          <Login
-            authService={authService}
-            checkLogin={checkLogin}
-            onLogout={onLogout}
-          />
+          <Login authService={authService} checkLogin={checkLogin} />
         </div>
       </Route>
       <Route path='/app'>
         <div className={styles.app}>
-          <CardApp />
+          <CardApp onLogout={onLogout} />
         </div>
       </Route>
     </Switch>
