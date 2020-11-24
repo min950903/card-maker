@@ -1,7 +1,9 @@
-.card {
+.container {
   display: flex;
-  height: 87%;
+  width: 100%;
+  height: 100vh;
 }
+
 .maker {
   display: flex;
   width: 50%;

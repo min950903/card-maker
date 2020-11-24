@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import styles from '../../assets/css/login/login.module.css';
 import Footer from '../common/footer';
 import Header from '../common/header';
@@ -8,13 +8,19 @@ const Login = ({ authService, checkLogin }) => {
     (evnet) => {
       authService
         .login(evnet.currentTarget.textContent)
-        .then((result) => {
-          checkLogin();
+        .then((data) => {
+          checkLogin(data.user.uid);
         })
         .catch((err) => {});
     },
     [authService, checkLogin]
   );
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      user && checkLogin(user.id);
+    });
+  }, [authService, checkLogin]);
 
   return (
     <section className={styles.contents}>

@@ -1,27 +1,32 @@
 import React, { useCallback, useState } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import styles from './app.module.css';
+import Card from './components/card/card';
 import Login from './components/login/login';
-import CardApp from './pages/cardApp';
 
 const App = ({ authService }) => {
   const [isLogin, setIsLogin] = useState(false);
+  const [card, setCard] = useState([]);
 
   const history = useHistory();
 
-  const checkLogin = useCallback(() => {
-    setIsLogin(true);
+  const checkLogin = useCallback(
+    (userId) => {
+      setIsLogin(true);
 
-    history.push('/app');
-  }, [history]);
+      history.push({ pathname: '/app', state: { id: userId } });
+    },
+    [history]
+  );
 
   const onLogout = useCallback(() => {
-    console.log('test');
-
+    authService.signOut();
     setIsLogin(false);
 
     history.push('/login');
-  }, [history]);
+  }, [authService, history]);
+
+  const onChangeCard = () => {};
 
   return (
     <Switch>
@@ -31,8 +36,8 @@ const App = ({ authService }) => {
         </div>
       </Route>
       <Route path='/app'>
-        <div className={styles.app}>
-          <CardApp onLogout={onLogout} />
+        <div className={styles.card}>
+          <Card onLogout={onLogout} />
         </div>
       </Route>
     </Switch>
