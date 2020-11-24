@@ -19,13 +19,6 @@ const App = ({ authService }) => {
     [history]
   );
 
-  const onLogout = useCallback(() => {
-    authService.signOut();
-    setIsLogin(false);
-
-    history.push('/login');
-  }, [authService, history]);
-
   const onChangeCard = () => {};
 
   return (
@@ -37,7 +30,7 @@ const App = ({ authService }) => {
       </Route>
       <Route path='/app'>
         <div className={styles.card}>
-          <Card onLogout={onLogout} />
+          <Card authService={authService} />
         </div>
       </Route>
     </Switch>
