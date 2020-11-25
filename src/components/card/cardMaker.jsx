@@ -4,10 +4,10 @@ import CardItem from './cardItem';
 
 const CardMaker = () => {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.cardTitle}>Card Maker</h1>
+    <section className={styles.container}>
+      <h1 className={styles.title}>Card Maker</h1>
       <CardItem />
-    </div>
+    </section>
   );
 };
 

@@ -22,18 +22,15 @@ const Card = ({ authService }) => {
   });
 
   return (
-    <>
+    <section className={styles.container}>
       <Header onLogout={onLogout} />
-      <section className={styles.container}>
-        <div className={styles.maker}>
-          <CardMaker />
-        </div>
-        <div className={styles.preview}>
-          <CardPreview />
-        </div>
-      </section>
+      <div className={styles.card}>
+        <CardMaker />
+        <hr className={styles.splite} />
+        <CardPreview />
+      </div>
       <Footer />
-    </>
+    </section>
   );
 };
 

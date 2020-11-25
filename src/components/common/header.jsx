@@ -3,9 +3,11 @@ import styles from '../../assets/css/common/header.module.css';
 const Header = ({ onLogout }) => {
   return (
     <header className={styles.header}>
-      <button className={styles.logout} onClick={onLogout}>
-        Logout
-      </button>
+      {onLogout && (
+        <button className={styles.logout} onClick={onLogout}>
+          Logout
+        </button>
+      )}
       <img
         className={styles.logo}
         src={require('../../assets/img/favicon.ico')}

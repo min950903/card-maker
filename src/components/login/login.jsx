@@ -11,7 +11,9 @@ const Login = ({ authService, checkLogin }) => {
         .then((data) => {
           checkLogin(data.user.uid);
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.log(err);
+        });
     },
     [authService, checkLogin]
   );

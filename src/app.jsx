@@ -29,9 +29,7 @@ const App = ({ authService }) => {
         </div>
       </Route>
       <Route path='/app'>
-        <div className={styles.card}>
-          <Card authService={authService} />
-        </div>
+        <Card authService={authService} />
       </Route>
     </Switch>
   );

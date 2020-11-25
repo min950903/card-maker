@@ -3,9 +3,9 @@ import styles from '../../assets/css/card/preview.module.css';
 
 const CardPreview = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <h1 className={styles.title}>Card Review</h1>
-    </div>
+    </section>
   );
 };
 
