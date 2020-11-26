@@ -2,6 +2,7 @@
 @value makerWhite from '../common/colors.css';
 
 .container {
+  margin-bottom: 2em;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(4, 1fr);
