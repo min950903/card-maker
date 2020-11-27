@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import styles from '../../assets/css/card/card.module.css';
 import CardMaker from '../../components/card/cardMaker';
 import CardPreview from '../../components/card/cardPreview';
-import styles from '../../assets/css/card/card.module.css';
-import Header from '../../components/common/header';
 import Footer from '../../components/common/footer';
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import Header from '../../components/common/header';
 const Card = ({ authService }) => {
   const cards = [
     {

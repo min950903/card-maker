@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../../assets/css/card/item.module.css';
+import styles from '../../assets/css/card/makerItem.module.css';
 
-const CardItem = ({ card }) => {
+const CardMakerItem = ({ card, onChangeValue }) => {
   return (
     <>
       {card && (
@@ -11,12 +11,9 @@ const CardItem = ({ card }) => {
             className={styles.company}
             placeholder='Company'
             value={card.company}
+            onChange={onChangeValue}
           />
-          <select
-            className={styles.color}
-            defaultValue='makerLight'
-            value={card.theme}
-          >
+          <select className={styles.color} defaultvalue={card.theme}>
             <option value='makerLight'>Light</option>
             <option value='makerBlack'>Black</option>
             <option value='makerColorful'>Colorful</option>
@@ -25,15 +22,20 @@ const CardItem = ({ card }) => {
             className={styles.title}
             placeholder='Title'
             value={card.title}
+            onChange={onChangeValue}
           />
           <input
             className={styles.email}
             placeholder='Email'
             value={card.email}
+            onChange={onChangeValue}
           />
-          <textarea className={styles.message} placeholder='Message'>
-            {card.message}
-          </textarea>
+          <textarea
+            className={styles.message}
+            placeholder='Message'
+            onChange={onChangeValue}
+            defaultValue={card.message}
+          ></textarea>
           <button className={styles.fileBtn}>No file</button>
           <button className={styles.addBtn}>Add</button>
         </form>
@@ -42,4 +44,4 @@ const CardItem = ({ card }) => {
   );
 };
 
-export default CardItem;
+export default CardMakerItem;
