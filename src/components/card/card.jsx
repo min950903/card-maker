@@ -31,7 +31,6 @@ const Card = ({ authService }) => {
       email: 'ChoiPM@gmail.com',
       message: 'I love u',
     },
-    {},
   ];
   const history = useHistory();
 

@@ -6,14 +6,19 @@ const CardMakerItem = ({ card, onChangeValue }) => {
     <>
       {card && (
         <form className={styles.container}>
-          <input className={styles.name} placeholder='Name' value={card.name} />
+          <input
+            className={styles.name}
+            placeholder='Name'
+            value={card.name}
+            onChange={onChangeValue}
+          />
           <input
             className={styles.company}
             placeholder='Company'
             value={card.company}
             onChange={onChangeValue}
           />
-          <select className={styles.color} defaultvalue={card.theme}>
+          <select className={styles.color} defaultValue={card.theme}>
             <option value='makerLight'>Light</option>
             <option value='makerBlack'>Black</option>
             <option value='makerColorful'>Colorful</option>
