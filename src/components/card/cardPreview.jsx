@@ -7,7 +7,7 @@ const CardPreview = ({ cards }) => {
     <section className={styles.container}>
       <h1 className={styles.title}>Card Review</h1>
       {cards &&
-        cards.map((card, index) => <CardPreviewItem card={card} key={index} />)}
+        cards.map((card) => <CardPreviewItem card={card} key={card.id} />)}
     </section>
   );
 };

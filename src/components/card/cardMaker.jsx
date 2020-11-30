@@ -13,10 +13,10 @@ const CardMaker = ({ cards }) => {
     <section className={styles.container}>
       <h1 className={styles.title}>Card Maker</h1>
       {cards &&
-        cards.map((card, index) => (
+        cards.map((card) => (
           <CardMakerItem
             card={card}
-            key={index}
+            key={card.id}
             onChangeValue={onChangeValue}
           />
         ))}

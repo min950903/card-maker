@@ -1,18 +1,59 @@
-@value makerGreen from '../common/colors.css';
-@value mediaQuery from '../common/size.css';
+@value makerGreen, makerWhite, makerColorful, makerBlack, makerWheat, makerLightPink, makerShadow from '../common/colors.css';
 
-.container {
-  margin-left: 5em;
-  margin-right: 5em;
-  background-color: makerGreen;
-  border-radius: 25%;
+.item {
+  margin-bottom: 0.5em;
+  padding: 0.2em 0;
+  border-radius: 1em;
   display: flex;
+  align-items: center;
+  box-shadow: makerShadow;
+  max-width: 30rem;
+}
+
+.item.makerLight {
+  background-color: makerLightPink;
+}
+
+.item.makerBlack {
+  background-color: makerBlack;
+}
+
+.item.makerColorful {
+  background: makerColorful;
 }
 
 .img {
-  flex-direction: column;
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+  border-radius: 50%;
 }
 
 .contents {
+  width: 60%;
   flex-direction: row;
+}
+
+.name,
+.company,
+.title,
+.email,
+.message {
+  font-size: 1rem;
+  margin: 0;
+  color: makerWhite;
+}
+
+.name {
+  font-size: 1.5rem;
+}
+
+.split {
+  border-color: makerWheat;
+}
+
+.message {
+  margin-top: 0.2em;
 }
