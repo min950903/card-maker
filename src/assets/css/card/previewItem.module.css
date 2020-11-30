@@ -6,20 +6,21 @@
   border-radius: 1em;
   display: flex;
   align-items: center;
-  box-shadow: makerShadow;
-  max-width: 30rem;
-}
-
-.item.makerLight {
-  background-color: makerLightPink;
+  box-shadow: 6px 6px 8px 0px makerShadow;
+  max-width: 50rem;
+  width: 100%;
 }
 
 .item.makerBlack {
   background-color: makerBlack;
 }
 
-.item.makerColorful {
+.item.colorful {
   background: makerColorful;
+}
+
+.item.makerLight {
+  background-color: makerLightPink;
 }
 
 .img {

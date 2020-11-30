@@ -5,7 +5,7 @@ const CardPreviewItem = ({ card }) => {
     card.theme === 'makerBlack'
       ? styles.makerBlack
       : 'makerColorful'
-      ? styles.makerColorful
+      ? styles.colorful
       : styles.makerLight;
 
   return (
