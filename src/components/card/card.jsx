@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from '../../assets/css/card/card.module.css';
 import CardMaker from '../../components/card/cardMaker';
@@ -55,11 +56,30 @@ const Card = ({ authService }) => {
     });
   }, [authService, history]);
 
+  const onSubmitCard = useCallback(
+    (event) => {
+      event.preventDefault();
+      const card = {
+        id: 4,
+        name: '',
+        company: '',
+        theme: '',
+        title: ' ',
+        email: '',
+        message: '',
+        fileName: '',
+        fileURL: null,
+      };
+      setCards([...cards, card]);
+    },
+    [cards]
+  );
+
   return (
     <section className={styles.container}>
       <Header onLogout={onLogout} />
       <div className={styles.card}>
-        <CardMaker cards={cards} />
+        <CardMaker cards={cards} onSubmitCard={onSubmitCard} />
         <hr className={styles.splite} />
         <CardPreview cards={cards} />
       </div>

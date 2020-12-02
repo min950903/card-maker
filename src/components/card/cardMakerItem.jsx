@@ -18,7 +18,11 @@ const CardMakerItem = ({ card, onChangeValue }) => {
             value={card.company}
             onChange={onChangeValue}
           />
-          <select className={styles.color} defaultValue={card.theme}>
+          <select
+            className={styles.color}
+            value={card.theme}
+            onChange={onChangeValue}
+          >
             <option value='makerLight'>Light</option>
             <option value='makerBlack'>Black</option>
             <option value='makerColorful'>Colorful</option>
@@ -42,7 +46,7 @@ const CardMakerItem = ({ card, onChangeValue }) => {
             defaultValue={card.message}
           ></textarea>
           <button className={styles.fileBtn}>No file</button>
-          <button className={styles.addBtn}>Add</button>
+          <button className={styles.addBtn}>Delete</button>
         </form>
       )}
     </>

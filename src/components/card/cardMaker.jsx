@@ -1,14 +1,14 @@
-import React from 'react';
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import styles from '../../assets/css/card/maker.module.css';
-import Header from '../common/header';
+import CardAddForm from './cardAddForm';
 import CardMakerItem from './cardMakerItem';
 
-const CardMaker = ({ cards }) => {
+const CardMaker = ({ cards, onSubmitCard }) => {
   const onChangeValue = useCallback((event) => {
     console.log(event.currentTarget.value);
   }, []);
 
+  console.log(cards);
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Card Maker</h1>
@@ -20,6 +20,7 @@ const CardMaker = ({ cards }) => {
             onChangeValue={onChangeValue}
           />
         ))}
+      <CardAddForm onSubmitCard={onSubmitCard} />
     </section>
   );
 };
