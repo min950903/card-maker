@@ -8,7 +8,9 @@ const CardPreview = ({ cards }) => {
       <h1 className={styles.title}>Card Review</h1>
       <div className={styles.preview}>
         {cards &&
-          cards.map((card) => <CardPreviewItem card={card} key={card.id} />)}
+          Object.keys(cards).map((key) => (
+            <CardPreviewItem card={cards[key]} key={key} />
+          ))}
       </div>
     </section>
   );

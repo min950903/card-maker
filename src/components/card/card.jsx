@@ -6,9 +6,10 @@ import CardMaker from '../../components/card/cardMaker';
 import CardPreview from '../../components/card/cardPreview';
 import Footer from '../../components/common/footer';
 import Header from '../../components/common/header';
+
 const Card = ({ authService }) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    1: {
       id: 1,
       name: 'eliie',
       company: 'samsung',
@@ -19,7 +20,7 @@ const Card = ({ authService }) => {
       fileName: 'ellie',
       fileURL: 'ellie.png',
     },
-    {
+    2: {
       id: 2,
       name: 'minyoung',
       company: 'naver',
@@ -30,7 +31,7 @@ const Card = ({ authService }) => {
       fileName: 'minyoung',
       fileURL: null,
     },
-    {
+    3: {
       id: 3,
       name: 'Choi',
       company: 'Kakao',
@@ -41,7 +42,8 @@ const Card = ({ authService }) => {
       fileName: 'Choi',
       fileURL: null,
     },
-  ]);
+  });
+
   const history = useHistory();
 
   const onLogout = () => {
@@ -56,19 +58,34 @@ const Card = ({ authService }) => {
     });
   }, [authService, history]);
 
-  const onSubmitCard = useCallback(
-    (card) => {
-      const updateCard = [...cards, card];
-      setCards(updateCard);
+  const onDeleteCard = useCallback(
+    (id) => {
+      const deletedCards = { ...cards };
+      delete deletedCards[id];
+      setCards(deletedCards);
     },
     [cards]
   );
+
+  const onCreateOrUpdateCard = (updateCard) => {
+    setCards((cards) => {
+      const updateCards = { ...cards };
+      updateCards[updateCard.id] = updateCard;
+
+      return updateCards;
+    });
+  };
 
   return (
     <section className={styles.container}>
       <Header onLogout={onLogout} />
       <div className={styles.card}>
-        <CardMaker cards={cards} onSubmitCard={onSubmitCard} />
+        <CardMaker
+          cards={cards}
+          onSubmitCard={onCreateOrUpdateCard}
+          onDeleteCard={onDeleteCard}
+          onChangeValue={onCreateOrUpdateCard}
+        />
         <hr className={styles.splite} />
         <CardPreview cards={cards} />
       </div>

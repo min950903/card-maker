@@ -1,7 +1,21 @@
 import React from 'react';
 import styles from '../../assets/css/card/makerItem.module.css';
 
-const CardMakerItem = ({ card, onChangeValue }) => {
+const CardMakerItem = ({ card, onChangeValue, onDeleteCard }) => {
+  const onDelete = (event) => {
+    onDeleteCard(card.id);
+  };
+
+  const onChange = (event) => {
+    if (null === event.target) {
+      return;
+    }
+    event.preventDefault();
+
+    const { name, value } = event.target;
+    onChangeValue({ ...card, [name]: value });
+  };
+
   return (
     <>
       {card && (
@@ -10,18 +24,21 @@ const CardMakerItem = ({ card, onChangeValue }) => {
             className={styles.name}
             placeholder='Name'
             value={card.name}
-            onChange={onChangeValue}
+            name='name'
+            onChange={onChange}
           />
           <input
             className={styles.company}
             placeholder='Company'
+            name='company'
             value={card.company}
-            onChange={onChangeValue}
+            onChange={onChange}
           />
           <select
-            className={styles.color}
+            className={styles.theme}
             value={card.theme}
-            onChange={onChangeValue}
+            name='theme'
+            onChange={onChange}
           >
             <option value='makerLight'>Light</option>
             <option value='makerBlack'>Black</option>
@@ -30,23 +47,28 @@ const CardMakerItem = ({ card, onChangeValue }) => {
           <input
             className={styles.title}
             placeholder='Title'
+            name='title'
             value={card.title}
-            onChange={onChangeValue}
+            onChange={onChange}
           />
           <input
             className={styles.email}
             placeholder='Email'
+            name='email'
             value={card.email}
-            onChange={onChangeValue}
+            onChange={onChange}
           />
           <textarea
             className={styles.message}
             placeholder='Message'
-            onChange={onChangeValue}
+            name='message'
+            onChange={onChange}
             defaultValue={card.message}
           ></textarea>
           <button className={styles.fileBtn}>No file</button>
-          <button className={styles.addBtn}>Delete</button>
+          <button type='button' className={styles.addBtn} onClick={onDelete}>
+            Delete
+          </button>
         </form>
       )}
     </>

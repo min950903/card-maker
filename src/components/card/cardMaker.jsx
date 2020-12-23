@@ -3,21 +3,17 @@ import styles from '../../assets/css/card/maker.module.css';
 import CardAddForm from './cardAddForm';
 import CardMakerItem from './cardMakerItem';
 
-const CardMaker = ({ cards, onSubmitCard }) => {
-  const onChangeValue = useCallback((event) => {
-    console.log(event.currentTarget.value);
-  }, []);
-
-  console.log(cards);
+const CardMaker = ({ cards, onSubmitCard, onDeleteCard, onChangeValue }) => {
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>Card Maker</h1>
       {cards &&
-        cards.map((card) => (
+        Object.keys(cards).map((key) => (
           <CardMakerItem
-            card={card}
-            key={card.id}
+            card={cards[key]}
+            key={key}
             onChangeValue={onChangeValue}
+            onDeleteCard={onDeleteCard}
           />
         ))}
       <CardAddForm onSubmitCard={onSubmitCard} />

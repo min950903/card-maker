@@ -4,9 +4,9 @@ const CardPreviewItem = ({ card }) => {
   const bgColor =
     card.theme === 'makerBlack'
       ? styles.makerBlack
-      : 'makerColorful'
-      ? styles.colorful
-      : styles.makerLight;
+      : card.theme === 'makerLight'
+      ? styles.makerLight
+      : styles.colorful;
 
   return (
     <section className={`${styles.item} ${bgColor}`}>

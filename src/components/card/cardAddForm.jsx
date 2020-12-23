@@ -44,7 +44,7 @@ const CardAddForm = ({ onSubmitCard }) => {
         name='company'
         placeholder='Company'
       />
-      <select ref={themeRef} className={styles.color} name='color'>
+      <select ref={themeRef} className={styles.theme} name='color'>
         <option value='makerLight'>Light</option>
         <option value='makerBlack'>Black</option>
         <option value='makerColorful'>Colorful</option>
