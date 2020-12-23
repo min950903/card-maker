@@ -57,20 +57,9 @@ const Card = ({ authService }) => {
   }, [authService, history]);
 
   const onSubmitCard = useCallback(
-    (event) => {
-      event.preventDefault();
-      const card = {
-        id: 4,
-        name: '',
-        company: '',
-        theme: '',
-        title: ' ',
-        email: '',
-        message: '',
-        fileName: '',
-        fileURL: null,
-      };
-      setCards([...cards, card]);
+    (card) => {
+      const updateCard = [...cards, card];
+      setCards(updateCard);
     },
     [cards]
   );
