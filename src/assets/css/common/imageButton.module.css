@@ -1,0 +1,35 @@
+@value makerLightGray, makerPink from '../common/colors.css';
+
+.container {
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.button {
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0;
+  outline: 2px solid black;
+  font-size: 0.8rem;
+}
+
+.button.no {
+  background-color: makerLightGray;
+}
+
+.button.yes {
+  background-color: makerPink;
+}
+
+.input {
+  display: none;
+}
+
+.button:hover {
+  opacity: 0.8;
+}

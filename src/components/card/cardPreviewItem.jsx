@@ -11,7 +11,7 @@ const CardPreviewItem = ({ card }) => {
   return (
     <section className={`${styles.item} ${bgColor}`}>
       <img
-        src={require('../../assets/img/default.jpg')}
+        src={card.fileURL}
         alt='img'
         width='150px'
         height='150px'

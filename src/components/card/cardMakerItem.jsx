@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../../assets/css/card/makerItem.module.css';
 
-const CardMakerItem = ({ card, onChangeValue, onDeleteCard }) => {
-  const onDelete = (event) => {
+const CardMakerItem = ({ FileInput, card, onChangeValue, onDeleteCard }) => {
+  const onDelete = () => {
     onDeleteCard(card.id);
   };
 
@@ -14,6 +14,10 @@ const CardMakerItem = ({ card, onChangeValue, onDeleteCard }) => {
 
     const { name, value } = event.target;
     onChangeValue({ ...card, [name]: value });
+  };
+
+  const onUploadFile = ({ fileName, fileURL }) => {
+    onChangeValue({ ...card, fileName: fileName, fileURL: fileURL });
   };
 
   return (
@@ -65,7 +69,7 @@ const CardMakerItem = ({ card, onChangeValue, onDeleteCard }) => {
             onChange={onChange}
             defaultValue={card.message}
           ></textarea>
-          <button className={styles.fileBtn}>No file</button>
+          <FileInput fileName={card.fileName} onUploadFile={onUploadFile} />
           <button type='button' className={styles.addBtn} onClick={onDelete}>
             Delete
           </button>

@@ -6,8 +6,10 @@ import CardMaker from '../../components/card/cardMaker';
 import CardPreview from '../../components/card/cardPreview';
 import Footer from '../../components/common/footer';
 import Header from '../../components/common/header';
+import Cloudinary from '../../lib/api/cloudinary';
 
-const Card = ({ authService }) => {
+const Card = ({ FileInput, authService }) => {
+  const cloudinary = new Cloudinary();
   const [cards, setCards] = useState({
     1: {
       id: 1,
@@ -17,8 +19,8 @@ const Card = ({ authService }) => {
       title: 'software',
       email: 'test@gmail.com',
       message: "Don't forget to code your dream",
-      fileName: 'ellie',
-      fileURL: 'ellie.png',
+      fileName: null,
+      fileURL: null,
     },
     2: {
       id: 2,
@@ -28,7 +30,7 @@ const Card = ({ authService }) => {
       title: 'senior',
       email: 'minyount@gmail.com',
       message: 'No pain, No gain',
-      fileName: 'minyoung',
+      fileName: null,
       fileURL: null,
     },
     3: {
@@ -39,7 +41,7 @@ const Card = ({ authService }) => {
       title: 'Product Manager',
       email: 'ChoiPM@gmail.com',
       message: 'I love u',
-      fileName: 'Choi',
+      fileName: null,
       fileURL: null,
     },
   });
@@ -81,6 +83,7 @@ const Card = ({ authService }) => {
       <Header onLogout={onLogout} />
       <div className={styles.card}>
         <CardMaker
+          FileInput={FileInput}
           cards={cards}
           onSubmitCard={onCreateOrUpdateCard}
           onDeleteCard={onDeleteCard}

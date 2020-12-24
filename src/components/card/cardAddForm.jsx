@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRef } from 'react';
 import styles from '../../assets/css/card/makerItem.module.css';
+import ImageButton from '../common/imageButton';
 
-const CardAddForm = ({ onSubmitCard }) => {
+const CardAddForm = ({ FileInput, onSubmitCard }) => {
+  const [file, setFile] = useState({
+    fileName: null,
+    fileURL: null,
+  });
+
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -22,12 +28,21 @@ const CardAddForm = ({ onSubmitCard }) => {
       title: titleRef.current.value || '',
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',
-      fileName: '',
+      fileName: null,
       fileURL: null,
     };
+
     formRef.current.reset();
+    setFile({
+      fileName: null,
+      fileURL: null,
+    });
 
     onSubmitCard(card);
+  };
+
+  const onUploadFile = ({ fileName, fileURL }) => {
+    setFile({ fileName: fileName, fileURL: fileURL });
   };
 
   return (
@@ -67,7 +82,7 @@ const CardAddForm = ({ onSubmitCard }) => {
         name='message'
         placeholder='Message'
       ></textarea>
-      <button className={styles.fileBtn}>No file</button>
+      <FileInput fileName={file.fileName} onUploadFile={onUploadFile} />
       <button type='submit' className={styles.addBtn}>
         Add
       </button>

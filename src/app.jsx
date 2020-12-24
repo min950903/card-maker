@@ -4,9 +4,8 @@ import styles from './app.module.css';
 import Card from './components/card/card';
 import Login from './components/login/login';
 
-const App = ({ authService }) => {
+const App = ({ FileInput, authService }) => {
   const [isLogin, setIsLogin] = useState(false);
-  const [card, setCard] = useState([]);
 
   const history = useHistory();
 
@@ -19,8 +18,6 @@ const App = ({ authService }) => {
     [history]
   );
 
-  const onChangeCard = () => {};
-
   return (
     <Switch>
       <Route path={['/login', '/']} exact>
@@ -29,7 +26,7 @@ const App = ({ authService }) => {
         </div>
       </Route>
       <Route path='/app'>
-        <Card authService={authService} />
+        <Card FileInput={FileInput} authService={authService} />
       </Route>
     </Switch>
   );
