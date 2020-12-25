@@ -6,45 +6,11 @@ import CardMaker from '../../components/card/cardMaker';
 import CardPreview from '../../components/card/cardPreview';
 import Footer from '../../components/common/footer';
 import Header from '../../components/common/header';
-import Cloudinary from '../../lib/api/cloudinary';
 
-const Card = ({ FileInput, authService }) => {
-  const cloudinary = new Cloudinary();
-  const [cards, setCards] = useState({
-    1: {
-      id: 1,
-      name: 'eliie',
-      company: 'samsung',
-      theme: 'makerBlack',
-      title: 'software',
-      email: 'test@gmail.com',
-      message: "Don't forget to code your dream",
-      fileName: null,
-      fileURL: null,
-    },
-    2: {
-      id: 2,
-      name: 'minyoung',
-      company: 'naver',
-      theme: 'makerBlack',
-      title: 'senior',
-      email: 'minyount@gmail.com',
-      message: 'No pain, No gain',
-      fileName: null,
-      fileURL: null,
-    },
-    3: {
-      id: 3,
-      name: 'Choi',
-      company: 'Kakao',
-      theme: 'makerColorful',
-      title: 'Product Manager',
-      email: 'ChoiPM@gmail.com',
-      message: 'I love u',
-      fileName: null,
-      fileURL: null,
-    },
-  });
+const Card = ({ FileInput, authService, dbService }) => {
+  const historyState = useHistory().state;
+  const [cards, setCards] = useState({});
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const history = useHistory();
 
@@ -53,20 +19,35 @@ const Card = ({ FileInput, authService }) => {
   };
 
   useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopCards = dbService.getCards(userId, (cards) => {
+      setCards(cards);
+    });
+    return () => stopCards();
+  }, [dbService, userId]);
+
+  useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+        setCards(dbService.getCards(userId));
+      } else {
         history.push('/');
       }
     });
-  }, [authService, history]);
+  }, [authService, dbService, history, userId]);
 
   const onDeleteCard = useCallback(
     (id) => {
       const deletedCards = { ...cards };
       delete deletedCards[id];
       setCards(deletedCards);
+
+      dbService.deleteCard(userId, cards[id]);
     },
-    [cards]
+    [cards, dbService, userId]
   );
 
   const onCreateOrUpdateCard = (updateCard) => {
@@ -76,6 +57,7 @@ const Card = ({ FileInput, authService }) => {
 
       return updateCards;
     });
+    dbService.addOrUpdateCard(userId, updateCard);
   };
 
   return (

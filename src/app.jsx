@@ -4,7 +4,7 @@ import styles from './app.module.css';
 import Card from './components/card/card';
 import Login from './components/login/login';
 
-const App = ({ FileInput, authService }) => {
+const App = ({ FileInput, authService, dbService }) => {
   const [isLogin, setIsLogin] = useState(false);
 
   const history = useHistory();
@@ -26,7 +26,11 @@ const App = ({ FileInput, authService }) => {
         </div>
       </Route>
       <Route path='/app'>
-        <Card FileInput={FileInput} authService={authService} />
+        <Card
+          FileInput={FileInput}
+          authService={authService}
+          dbService={dbService}
+        />
       </Route>
     </Switch>
   );

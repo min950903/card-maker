@@ -6,6 +6,7 @@
   flex-basis: 50%;
   padding-left: 1em;
   padding-right: 1em;
+  overflow-y: auto;
 }
 
 .title {

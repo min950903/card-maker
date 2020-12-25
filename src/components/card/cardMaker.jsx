@@ -9,7 +9,6 @@ const CardMaker = ({
   onSubmitCard,
   onDeleteCard,
   onChangeValue,
-  onUploadImg,
 }) => {
   return (
     <section className={styles.container}>
