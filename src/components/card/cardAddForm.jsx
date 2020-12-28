@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from '../../assets/css/card/makerItem.module.css';
-import ImageButton from '../common/imageButton';
 
 const CardAddForm = ({ FileInput, onSubmitCard }) => {
   const [file, setFile] = useState({
@@ -28,8 +26,8 @@ const CardAddForm = ({ FileInput, onSubmitCard }) => {
       title: titleRef.current.value || '',
       email: emailRef.current.value || '',
       message: messageRef.current.value || '',
-      fileName: null,
-      fileURL: null,
+      fileName: file.fileName || null,
+      fileURL: file.fileURL || null,
     };
 
     formRef.current.reset();

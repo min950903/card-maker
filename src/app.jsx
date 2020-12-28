@@ -1,18 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import styles from './app.module.css';
 import Card from './components/card/card';
 import Login from './components/login/login';
 
 const App = ({ FileInput, authService, dbService }) => {
-  const [isLogin, setIsLogin] = useState(false);
-
   const history = useHistory();
 
   const checkLogin = useCallback(
     (userId) => {
-      setIsLogin(true);
-
       history.push({ pathname: '/app', state: { id: userId } });
     },
     [history]
