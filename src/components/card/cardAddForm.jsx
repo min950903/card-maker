@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import styles from '../../assets/css/card/makerItem.module.css';
 
-const CardAddForm = ({ FileInput, onSubmitCard }) => {
+const CardAddForm = memo(({ FileInput, onSubmitCard }) => {
   const [file, setFile] = useState({
     fileName: null,
     fileURL: null,
@@ -86,6 +86,6 @@ const CardAddForm = ({ FileInput, onSubmitCard }) => {
       </button>
     </form>
   );
-};
+});
 
 export default CardAddForm;

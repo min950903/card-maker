@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app';
@@ -11,7 +11,9 @@ import DbService from './lib/api/dbService';
 const authService = new AuthService();
 const dbService = new DbService();
 const cloudinary = new Cloudinary();
-const FileInput = (props) => <ImageButton {...props} cloudinary={cloudinary} />;
+const FileInput = memo((props) => (
+  <ImageButton {...props} cloudinary={cloudinary} />
+));
 
 ReactDOM.render(
   <React.StrictMode>

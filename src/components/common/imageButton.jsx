@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import styles from '../../assets/css/common/imageButton.module.css';
 
-const ImageButton = ({ fileName, cloudinary, onUploadFile }) => {
+const ImageButton = memo(({ fileName, cloudinary, onUploadFile }) => {
   const [isLoading, setIsLoading] = useState(false);
   const fileInputRef = useRef();
 
@@ -45,6 +45,6 @@ const ImageButton = ({ fileName, cloudinary, onUploadFile }) => {
       {isLoading && <div className={styles.loading}></div>}
     </div>
   );
-};
+});
 
 export default ImageButton;

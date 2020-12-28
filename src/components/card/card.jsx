@@ -14,9 +14,9 @@ const Card = ({ FileInput, authService, dbService }) => {
 
   const history = useHistory();
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.signOut();
-  };
+  }, [authService]);
 
   useEffect(() => {
     if (!userId) {

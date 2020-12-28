@@ -1,6 +1,7 @@
 import React from 'react';
+import { memo } from 'react';
 import styles from '../../assets/css/card/previewItem.module.css';
-const CardPreviewItem = ({ card }) => {
+const CardPreviewItem = memo(({ card }) => {
   const bgColor =
     card.theme === 'makerBlack'
       ? styles.makerBlack
@@ -27,6 +28,6 @@ const CardPreviewItem = ({ card }) => {
       </div>
     </section>
   );
-};
+});
 
 export default CardPreviewItem;

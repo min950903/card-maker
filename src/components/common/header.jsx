@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from '../../assets/css/common/header.module.css';
-const Header = ({ onLogout }) => {
+const Header = memo(({ onLogout }) => {
   return (
     <header className={styles.header}>
       {onLogout && (
@@ -16,6 +16,6 @@ const Header = ({ onLogout }) => {
       <h2 className={styles.title}>Business Card Maker</h2>
     </header>
   );
-};
+});
 
 export default Header;
